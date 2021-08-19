@@ -37,3 +37,17 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+
+- stage: Deploy
+  displayName: Deploy
+  jobs:
+  - job: Deploy
+    displayName: Deploy
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: AzureWebAppContainer@1
+      inputs:
+        azureSubscription: 'Free Trial(07d1be70-ff34-4a87-b477-982b5d915f83)'
+        appName: 'qytang-webapp'
+        containers: 'qytangcr.azurecr.io/webapp:latest'
