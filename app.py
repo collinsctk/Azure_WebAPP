@@ -9,7 +9,7 @@ node = Flask(__name__)
 # 静态路由,最简单页面
 @node.route('/', methods=['GET'])
 def index():
-    return f"123ICD:{socket.gethostname()}, My IP is {socket.gethostbyname(socket.gethostname())}"
+    return f"1234ICD:{socket.gethostname()}, My IP is {socket.gethostbyname(socket.gethostname())}"
 
 
 if __name__ == "__main__":
